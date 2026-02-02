@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joice - Structured Insights</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        handwriting: ['Caveat', 'cursive'],
+                    },
+                    colors: {
+                        background: '#050505',
+                        card: '#18181b',
+                        cardBorder: '#27272a',
+                        primary: '#059669',
+                        dimText: '#3f3f46',
+                    },
+                    animation: {
+                        'spin-slow': 'spin 3s linear infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        /* Custom Background Gradient Effect */
+        .aurora-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: #050505;
+        }
+
+        .aurora-blob-1 {
+            position: absolute;
+            top: -20%;
+            left: -10%;
+            width: 70vw;
+            height: 70vw;
+            background: radial-gradient(circle, rgba(0,255,255,0.15) 0%, rgba(255,0,255,0.15) 40%, rgba(0,0,0,0) 70%);
+            filter: blur(80px);
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+
+        .aurora-blob-2 {
+            position: absolute;
+            bottom: -20%;
+            right: -10%;
+            width: 80vw;
+            height: 80vw;
+            background: radial-gradient(circle, rgba(255,165,0,0.15) 0%, rgba(255,0,128,0.15) 40%, rgba(0,255,255,0.1) 70%);
+            filter: blur(100px);
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+        
+        /* Smooth fade for the dimmed text */
+        .text-gradient-dim {
+            background: linear-gradient(to bottom, #52525b, #27272a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-nav-btn {
+            background: rgba(5, 150, 105, 0.1);
+            border: 1px solid rgba(5, 150, 105, 0.2);
+            color: #6ee7b7;
+            transition: all 0.3s ease;
+        }
+        .glass-nav-btn:hover {
+            background: rgba(255, 100, 0, 0.2);
+        }
+
+        .input-wrapper {
+            background: #0a0a0a;
+            border: 1px solid #27272a;
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.05);
+        }
+
+        .mockup-card {
+            background: #1c1c1c;
+            border: 1px solid #333;
+            box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.8);
+        }
+
+        .list-item {
+            background: #262626;
+            border: 1px solid #333;
+            transition: transform 0.2s;
+        }
+        .list-item:hover {
+            border-color: #444;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative">
+
+    <!-- Background Effects -->
+    <div class="aurora-bg">
+        <div class="aurora-blob-1"></div>
+        <div class="aurora-blob-2"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="w-full max-w-7xl mx-auto px-6 py-6 flex justify-between items-center relative z-10">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.5 19C19.9853 19 22 16.9853 22 14.5C22 12.132 20.177 10.244 17.86 10.019C17.482 6.629 14.632 4 11.125 4C7.236 4 4.156 6.956 3.78 10.76C2.205 11.26 1 12.715 1 14.5C1 16.9853 3.01472 19 5.5 19H17.5Z" fill="white"/>
+                <circle cx="8" cy="14" r="1.5" fill="#050505"/>
+                <circle cx="13" cy="12" r="1.5" fill="#050505"/>
+            </svg>
+        </a>
+
+        <!-- Nav Button -->
+        <a href="#" class="glass-nav-btn px-5 py-2 rounded-full text-sm font-medium">
+            Join the beta
+        </a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex flex-col items-center justify-start pt-12 px-4 relative z-10 w-full max-w-5xl mx-auto">
+        
+        <!-- Headline -->
+        <h1 class="text-5xl md:text-7xl font-semibold text-center tracking-tight leading-[1.1] mb-6">
+            <span class="text-white">Turn scattered thoughts into</span><br>
+            <span class="text-[#3f3f46]">structured insights</span>
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="text-gray-400 text-center max-w-xl text-lg mb-10 leading-relaxed">
+            Joice transforms scattered thoughts into structured insights via conversational AI. <strong class="text-gray-200 font-medium">Capture reflections</strong> through real-time dialogue and gain clarity without the friction of journaling.
+        </p>
+
+        <!-- Input Form -->
+        <div class="w-full max-w-md mb-4">
+            <form class="flex flex-col sm:flex-row gap-3">
+                <input type="email" placeholder="Enter your email" class="flex-grow input-wrapper text-white px-4 py-3 rounded-lg focus:outline-none focus:border-gray-500 placeholder-gray-500 text-sm">
+                <button type="submit" class="bg-[#059669] hover:bg-[#047857] text-white font-medium px-6 py-3 rounded-lg transition-colors text-sm whitespace-nowrap shadow-[0_0_20px_rgba(5,150,105,0.3)]">
+                    Join the beta
+                </button>
+            </form>
+        </div>
+
+        <!-- Microcopy -->
+        <p class="text-[#44403c] text-xs mb-16">
+            First 100 sign-ups get a lifetime discount.
+        </p>
+
+        <!-- Mockup Section -->
+        <div class="relative w-full max-w-[400px]">
+            
+            <!-- Handwritten Annotation -->
+            <div class="absolute -right-32 top-12 hidden md:block w-32">
+                <p class="handwriting text-white text-xl leading-tight mb-2 rotate-[-5deg]">
+                    Joice makes reflecting this easy
+                </p>
+                <svg class="w-12 h-12 text-white ml-4 rotate-[10deg]" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M80,10 C70,30 50,40 20,60 M20,60 L35,50 M20,60 L30,75" />
+                </svg>
+            </div>
+
+            <!-- Card -->
+            <div class="mockup-card rounded-2xl p-5 w-full overflow-hidden relative">
+                <!-- Card Header -->
+                <div class="flex items-center gap-3 mb-1">
+                    <div class="relative w-5 h-5 flex items-center justify-center">
+                        <svg class="animate-spin-slow w-5 h-5 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold text-lg">Transcribing session</h3>
+                </div>
+                <p class="text-gray-500 text-xs mb-5 ml-8">Synthesizing insights...</p>
+
+                <!-- List Items -->
+                <div class="space-y-3">
+                    <!-- Item 1 -->
+                    <div class="list-item rounded-xl p-3 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-[#0077b5] flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-linkedin-in text-white text-lg"></i>
+                        </div>
+                        <div class="flex-grow min-w-0">
+                            <div class="flex justify-between items-start">
+                                <h4 class="text-white text-sm font-medium truncate">Morning Strategy</h4>
+                                <span class="bg-[#1a3d2e] text-[#4ade80] text-[10px] font-bold px-1.5 py-0.5 rounded ml-2">Focus</span>
+                            </div>
+                            <p class="text-gray-500 text-xs truncate">3 action items extracted from...</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="list-item rounded-xl p-3 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-[#ff4500] flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-reddit-alien text-white text-lg"></i>
+                        </div>
+                        <div class="flex-grow min-w-0">
+                            <div class="flex justify-between items-start">
+                                <h4 class="text-white text-sm font-medium truncate">Evening Decompression</h4>
+                                <span class="bg-[#1a3d2e] text-[#4ade80] text-[10px] font-bold px-1.5 py-0.5 rounded ml-2">Clarity</span>
+                            </div>
+                            <p class="text-gray-500 text-xs truncate">Identified patterns in weekly...</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 (Cutoff) -->
+                    <div class="list-item rounded-xl p-3 flex items-center gap-3 opacity-50">
+                        <div class="w-10 h-10 rounded-full bg-[#1d9bf0] flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-twitter text-white text-lg"></i>
+                        </div>
+                        <div class="flex-grow min-w-0">
+                            <div class="flex justify-between items-start">
+                                <h4 class="text-white text-sm font-medium truncate">Project Brainstorm</h4>
+                            </div>
+                            <p class="text-gray-500 text-xs truncate">Synthesized core themes for...</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bottom Fade -->
+                <div class="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-[#1c1c1c] to-transparent"></div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
